@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Pokédex 3D</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="pokedex.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <div class="scanline"></div>
+
+    <header class="header">
+        <div class="flex flex-col items-center gap-0 py-4 px-4">
+            <div class="text-center mb-4">
+                <div class="logo-text">NATIONAL POKÉDEX</div>
+                <div class="logo-sub">Banco de Dados #001 - #1025</div>
+            </div>
+            
+            <div class="header-controls">
+                <div class="search-container">
+                    <input type="text" class="search-input" id="searchInput"
+                        placeholder="Buscar por nome, número ou tipo..."
+                        aria-label="Buscar Pokémon">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <button class="filter-toggle" id="filterToggle" aria-label="Filtrar por tipo">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="type-filters-wrapper" id="typeFiltersWrapper">
+                <div class="type-filters" id="typeFilters" role="group" aria-label="Filtros de tipo"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="counter" id="counter">CARREGANDO POKÉMON...</div>
+    <main class="card-grid" id="cardGrid" role="list"></main>
+    <div class="no-results" id="noResults" style="display:none;">
+        <div class="no-results-icon"><i class="fas fa-ghost"></i></div>
+        <div class="no-results-text">Nenhum Pokémon encontrado</div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
+        <div class="modal-content" id="modalContent">
+            <button class="modal-close" id="modalClose" aria-label="Fechar"><i class="fas fa-times"></i></button>
+            <div id="modalBody">
+                <div class="modal-loader"><div class="pokeball-loader"></div></div>
+            </div>
+        </div>
+    </div>
+        <script src="pokedex.js"></script>
+
+        
+</body>
+</html>
